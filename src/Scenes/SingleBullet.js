@@ -12,16 +12,16 @@ class SingleBullet extends Phaser.Scene {
     }
 
     preload() {
-        this.load.setPath("./assets/");
-        this.load.image("elephant", "elephant.png");
+        this.load.setPath("./assets/kenney_alien-ufo-pack/PNG");
+        this.load.image("User", "shipPink_manned.png");  
         this.load.image("heart", "heart.png");
     }
 
     create() {
         let my = this.my;
         
-        my.sprite.elephant = this.add.sprite(game.config.width/2, game.config.height - 40, "elephant");
-        my.sprite.elephant.setScale(0.25);
+        my.sprite.User = this.add.sprite(game.config.width / 2, game.config.height - 40, "User");
+        my.sprite.User.setScale(0.5);
 
         // Create the "bullet" offscreen and make it invisible to start
         my.sprite.heart = this.add.sprite(-10, -10, "heart");
@@ -34,7 +34,7 @@ class SingleBullet extends Phaser.Scene {
         this.space = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
         // Set movement speeds (in pixels/tick)
-        this.playerSpeed = 5;
+        this.playerSpeed = 7;
         this.bulletSpeed = 10;
 
         // update HTML description
@@ -47,16 +47,16 @@ class SingleBullet extends Phaser.Scene {
         // Moving left
         if (this.left.isDown) {
             // Check to make sure the sprite can actually move left
-            if (my.sprite.elephant.x > (my.sprite.elephant.displayWidth/2)) {
-                my.sprite.elephant.x -= this.playerSpeed;
+            if (my.sprite.User.x > (my.sprite.User.displayWidth/2)) {
+                my.sprite.User.x -= this.playerSpeed;
             }
         }
 
         // Moving right
         if (this.right.isDown) {
             // Check to make sure the sprite can actually move right
-            if (my.sprite.elephant.x < (game.config.width - (my.sprite.elephant.displayWidth/2))) {
-                my.sprite.elephant.x += this.playerSpeed;
+            if (my.sprite.User.x < (game.config.width - (my.sprite.User.displayWidth/2))) {
+                my.sprite.User.x += this.playerSpeed;
             }
         }
         
@@ -69,8 +69,8 @@ class SingleBullet extends Phaser.Scene {
                 // Set the position of the bullet to be the location of the player
                 // Offset by the height of the sprite, so the "bullet" comes out of
                 // the top of the player avatar, not the middle.
-                my.sprite.heart.x = my.sprite.elephant.x;
-                my.sprite.heart.y = my.sprite.elephant.y - my.sprite.elephant.displayHeight/2;
+                my.sprite.heart.x = my.sprite.User.x;
+                my.sprite.heart.y = my.sprite.User.y - my.sprite.User.displayHeight/2;
                 my.sprite.heart.visible = true;
             }
         }
