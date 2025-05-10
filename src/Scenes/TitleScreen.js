@@ -18,13 +18,11 @@ class TitleScreen extends Phaser.Scene {
       .setOrigin(0.5)
       .setLetterSpacing(10)
       .setScale(0.7, 3)
-      .setTint(0x00FF00);  // Optional: change the color using setTint
-
+  
     this.add.bitmapText(400, 300, 'kennyRocketSquare', 'Press SPACE to Start', 64)
       .setScale(0.5, 1.7)
       .setOrigin(0.5, 0)
-      .setTint(0x00FF00);  // Optional: change the color using setTint
-
+  
     // Optional logo
     this.add.sprite(400, 500, "User").setScale(1);
 
